@@ -8,6 +8,9 @@ if (burger) burger.addEventListener("click", () => {
   burger.setAttribute("aria-expanded", abierto);
 });
 
+// enlaces a la aplicación (login)
+document.querySelectorAll("[data-app]").forEach(a => { a.href = APP_URL; });
+
 // contacto
 document.querySelectorAll("#lnkCorreo, #pieCorreo").forEach(a => { a.href = "mailto:" + CONTACTO.correo; a.textContent = CONTACTO.correo; });
 if (CONTACTO.whatsapp) {
