@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto | ZUHAUS GROUP</title>
+<meta name="description" content="Contacta a ZUHAUS GROUP para tu proyecto de gerencia o construcción en Lima, Perú.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="index.html">ZUHAUS<span>GROUP</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav class="menu" id="menu" aria-label="Principal"><a href="nosotros.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="proyectos.html">Proyectos</a><a href="meister.html">Meister</a><a href="contacto.html" aria-current="page">Contacto</a></nav>
+    <a class="btn cta" href="contacto.html">Escríbenos</a>
+  </div>
+</header>
+<main>
+<section class="pagina-cab"><div class="wrap"><h1>Cuéntanos qué quieres construir.</h1><p>Escríbenos y te respondemos para entender tu proyecto.</p></div></section>
+<section class="contacto"><div class="wrap">
+  <div class="datos">
+    <div><span>Correo</span><a id="lnkCorreo" href="#"></a></div>
+    <div id="bloqueWa" hidden><span>WhatsApp</span><a id="lnkWa" href="#"></a></div>
+    <div><span>Ubicación</span>Lima, Perú</div>
+  </div>
+  <form class="form" id="formContacto">
+    <div class="fila">
+      <div><label for="fNombre">Nombre</label><input id="fNombre" required autocomplete="name"></div>
+      <div><label for="fEmpresa">Empresa</label><input id="fEmpresa" autocomplete="organization"></div>
+    </div>
+    <div class="fila">
+      <div><label for="fServicio">Servicio</label>
+        <select id="fServicio"><option>Gerencia de proyectos</option><option>Construcción</option><option>Gerencia y construcción</option><option value="Meister">Meister, plataforma de gestión</option><option>Otro</option></select></div>
+      <div><label for="fSector">Tipo de proyecto</label>
+        <select id="fSector"><option>Edificios</option><option>Comercial y retail</option><option>Industria y almacenes</option><option>Educación y salud</option><option>Infraestructura y obras exteriores</option><option>Remodelación o reforzamiento</option><option>Otro</option></select></div>
+    </div>
+    <div><label for="fMensaje">Cuéntanos del proyecto</label><textarea id="fMensaje" required></textarea></div>
+    <button class="btn" type="submit">Enviar mensaje</button>
+  </form>
+</div></section>
+</main>
+<a class="wa" id="wa" href="#" hidden>WhatsApp</a>
+<footer class="pie">
+  <div class="wrap">
+    <div class="cols">
+      <div><a class="marca" href="index.html">ZUHAUS<span>GROUP</span></a><p style="margin:0;max-width:26em">Gerencia y construcción de proyectos de todo tipo, con tecnología propia para controlar la obra.</p></div>
+      <div><h4>Sitio</h4><ul><li><a href="nosotros.html">Nosotros</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="proyectos.html">Proyectos</a></li><li><a href="meister.html">Meister</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li><a id="pieCorreo" href="#"></a></li><li>Lima, Perú</li></ul></div>
+    </div>
+    <div class="abajo"><span>© 2026 ZUHAUS GROUP. Todos los derechos reservados.</span></div>
+  </div>
+</footer>
+<script src="js/datos.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
