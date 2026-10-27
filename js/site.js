@@ -43,3 +43,37 @@ if ($("formContacto")) {
     window.location.href = "mailto:" + CONTACTO.correo + "?subject=" + encodeURIComponent("Consulta desde la web: " + $("fServicio").value) + "&body=" + encodeURIComponent(cuerpo);
   });
 }
+
+// animación de procesos de construcción (portada)
+(function () {
+  const svg = $("reelSvg"); if (!svg) return;
+  const escenas = [...svg.querySelectorAll(".escena")];
+  const quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const DURACION = 7500;
+  let i = 0, timer = null, pausado = quieto;
+  $("reelPuntos").innerHTML = escenas.map((e, k) => `<button type="button" aria-label="${e.dataset.nombre}" data-k="${k}"></button>`).join("");
+  function mostrar(k) {
+    i = (k + escenas.length) % escenas.length;
+    escenas.forEach(e => e.classList.remove("on"));
+    void svg.getBoundingClientRect();
+    escenas[i].classList.add("on");
+    $("reelNombre").textContent = escenas[i].dataset.nombre;
+    $("reelPuntos").querySelectorAll("button").forEach((b, n) => b.setAttribute("aria-current", n === i));
+  }
+  function programar() { clearTimeout(timer); if (!pausado) timer = setTimeout(() => { mostrar(i + 1); programar(); }, DURACION); }
+  $("reelPuntos").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { mostrar(+b.dataset.k); programar(); } });
+  const bp = $("reelPausa");
+  bp.textContent = pausado ? "Reanudar" : "Pausar";
+  bp.addEventListener("click", () => { pausado = !pausado; bp.textContent = pausado ? "Reanudar" : "Pausar"; bp.setAttribute("aria-label", pausado ? "Reanudar animación" : "Pausar animación"); programar(); });
+  mostrar(0); programar();
+})();
+
+// si existe media/reel.mp4, reemplaza la animación dibujada por el video
+(function () {
+  const caja = document.querySelector(".reel-box"); if (!caja) return;
+  const v = document.createElement("video");
+  v.className = "reel-video"; v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+  v.setAttribute("playsinline", ""); v.preload = "auto"; v.setAttribute("aria-label", "Video de obras de ZUHAUS GROUP");
+  v.addEventListener("loadeddata", () => { caja.innerHTML = ""; caja.appendChild(v); v.play().catch(() => {}); }, { once: true });
+  v.src = "media/reel.mp4";
+})();
