@@ -74,6 +74,6 @@ if ($("formContacto")) {
   const v = document.createElement("video");
   v.className = "reel-video"; v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
   v.setAttribute("playsinline", ""); v.preload = "auto"; v.setAttribute("aria-label", "Video de obras de ZUHAUS GROUP");
-  v.addEventListener("loadeddata", () => { caja.innerHTML = ""; caja.classList.add("con-video"); caja.appendChild(v); v.play().catch(() => {}); }, { once: true });
+  v.addEventListener("loadeddata", () => { caja.innerHTML = ""; caja.classList.add("con-video"); caja.style.cssText = "align-self:center;aspect-ratio:auto;height:auto;min-height:0;border:0;background:none;overflow:visible;max-height:none"; v.style.cssText = "display:block;width:100%;height:auto;max-height:none;object-fit:contain;border:0;background:none"; caja.appendChild(v); v.play().catch(() => {}); }, { once: true });
   v.src = "media/reel.mp4";
 })();
